@@ -1,2 +1,19 @@
-<h1>Bands#index</h1>
-<p>Find me in app/views/bands/index.html.erb</p>
+<h1>Bands</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @bands.each do |band| %>
+  <tr>
+    <td><%= link_to "#{band.name}", band_url(band), :method => "get" %></td>
+    <td><%= link_to "edit", edit_band_url(band), :method => "get" %></td>
+    <td><%= link_to "delete", band_url(band), :method => "delete" %></td>
+  </tr>
+  <% end %>
+</table>
+<br />
+<%= link_to "Create new band", new_band_url, :method => "get" %>

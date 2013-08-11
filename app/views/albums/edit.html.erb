@@ -1,2 +1,18 @@
-<h1>Albums#edit</h1>
-<p>Find me in app/views/albums/edit.html.erb</p>
+<h1>Edit album</h1>
+
+<form action="<%= albums_url %>" method="post">
+  <label for="album_title">Title:</label>
+  <input type=text name="album[title]" value="<%= @album.title %>">
+
+  <select name="album[band_id]" id="album_artist">
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>"
+        <%= "selected" if @album.band == band %>
+      >
+        <%= band.name %>
+      </option>
+    <% end %>
+
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="Update album">
+</form>

@@ -1,2 +1,15 @@
-<h1>Albums#new</h1>
-<p>Find me in app/views/albums/new.html.erb</p>
+<h1>Create new album</h1>
+
+<form action="<%= albums_url %>" method="post">
+  <label for="album_title">Title:</label>
+  <input type=text name="album[title]">
+
+  <select name="album[band_id]" id="album_artist">
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>">
+        <%= band.name %>
+      </option>
+    <% end %>
+
+  <input type="submit" value="Submit">
+</form>
