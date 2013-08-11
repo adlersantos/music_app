@@ -1,2 +1,24 @@
-<h1>Albums#index</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
+<h1>Albums</h1>
+
+<table>
+  <tr>
+    <th>Title/Artist</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @albums.each do |album| %>
+    <tr>
+      <td>
+        <%= link_to "#{album.title}", album_url(album), :method => "get" %> <br />
+        by <%= link_to "#{album.band.name}", band_url(album.band), :method => "get" %>
+      </td>
+      <td><%= link_to "edit", edit_album_url(album), :method => "get" %></td>
+      <td><%= link_to "delete", album_url(album), :method => "delete" %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to "Create new album", new_album_url, :method => "get" %>
