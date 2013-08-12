@@ -1,8 +1,30 @@
 <h1><%= @track.name %></h1>
+<%= link_to "Edit track", edit_album_track_url(@track.album, @track) %>
+
 <h3>Artist: <%= link_to "#{@track.band.name}", band_url(@track.band) %></h3>
 <h3>Album: <%= link_to "#{@track.album.title}", album_url(@track.album) %></h3>
 
 <h3>Lyrics:</h3>
 <pre><%= @track.lyrics %></pre>
 
-<%= link_to "Edit track", edit_album_track_url(@track.album, @track) %>
+<% if !@notes.empty? %>
+  <h4>Notes:</h4>
+  <ul>
+    <% @notes.each do |note| %>
+      <li>
+        <%= note.body %>
+        <%= button_to "Delete", note_url(note), :method => :delete %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="<%= notes_url %>" method="post">
+  Add note: <br />
+  <textarea name="note[body]"></textarea> <br />
+
+  <input type="hidden" name="note[track_id]" value="<%= @track.id %>">
+
+  <input type="submit" value="Add note">
+</form>
+
