@@ -11,6 +11,14 @@
   <%= msg %>
 <% end %>
 
+<% if current_user %>
+  You are logged in as <%= current_user.email %>.
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Logout">
+  </form>
+<% end %>
+
 <%= yield %>
 </body>
 </html>

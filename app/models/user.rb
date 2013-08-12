@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :token
+  attr_accessible :email, :password, :token, :activation_token
 
   has_many :notes,
     :class_name => "Note",
