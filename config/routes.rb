@@ -2,6 +2,7 @@ MusicApp::Application.routes.draw do
   resources :bands
   resources :notes, :only => [:create, :destroy]
   resources :users, :only => [:create, :destroy]
+  resource :session
 
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
