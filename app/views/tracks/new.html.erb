@@ -1,2 +1,20 @@
-<h1>Tracks#new</h1>
-<p>Find me in app/views/tracks/new.html.erb</p>
+<h1>Create new track</h1>
+
+<form action="<%= album_tracks_url(@album) %>" method="post">
+  <label for="track_name">Name:</label> <br />
+  <input type="text" name="track[name]"> <br />
+
+  <label for="track_lyrics">Lyrics:</label> <br />
+  <textarea name="track[lyrics]"></textarea> <br />
+
+  <label for="track_album"><%= @album_artist.name %> albums:</label> <br />
+  <select name="track[album_id]" id="track_album">
+    <% @album_artist.albums.each do |album| %>
+      <option value="<%= album.id %>">
+        <%= album.title %>
+      </option>
+    <% end %>
+  </select> <br /> <br />
+
+  <input type="submit" value="Submit">
+</form>

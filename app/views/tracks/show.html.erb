@@ -1,2 +1,8 @@
-<h1>Tracks#show</h1>
-<p>Find me in app/views/tracks/show.html.erb</p>
+<h1><%= @track.name %></h1>
+<h3>Artist: <%= link_to "#{@track.band.name}", band_url(@track.band) %></h3>
+<h3>Album: <%= link_to "#{@track.album.title}", album_url(@track.album) %></h3>
+
+<h3>Lyrics:</h3>
+<pre><%= @track.lyrics %></pre>
+
+<%= link_to "Edit track", edit_album_track_url(@track.album, @track) %>

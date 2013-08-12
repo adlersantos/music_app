@@ -1,5 +1,5 @@
 <h1><%= @album.title %></h1>
-<h3>Artist: <%= @album.band.name %></h3>
+<h3>Artist: <%= link_to "#{@album.band.name}", band_url(@album.band) %></h3>
 
 <table>
   <tr>
