@@ -2,7 +2,7 @@
 
 <form action="<%= albums_url %>" method="post">
   <label for="album_title">Title:</label>
-  <input type=text name="album[title]">
+  <input type="text" name="album[title]">
 
   <select name="album[band_id]" id="album_artist">
     <% @bands.each do |band| %>
