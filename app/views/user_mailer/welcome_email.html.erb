@@ -9,6 +9,10 @@
       and your email is: <%= @user.email %>.<br/>
     </p>
     <p>
+      Activate your account by going here:
+      <%= link_to "Activate URL", @activate_url %>
+    </p>
+    <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>
     <p>Thanks for joining and have a great day!</p>

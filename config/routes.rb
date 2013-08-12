@@ -6,6 +6,7 @@ MusicApp::Application.routes.draw do
 
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
+  get 'activate', to: 'users#activate'
 
   resources :albums do
     resources :tracks, :except => [:index]

@@ -117,6 +117,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   coffee-rails (~> 3.2.1)
   jquery-rails
   letter_opener
