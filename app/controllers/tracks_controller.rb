@@ -4,7 +4,8 @@ class TracksController < ApplicationController
     if @track.save
       redirect_to album_url(@track.album)
     else
-      errors[:notices] << "track couldn't be saved for some reason"
+      flash[:notice] ||= []
+      flash[:notice] << "track couldn't be saved for some reason"
       redirect_to new_album_track_url(@track.album)
     end
   end

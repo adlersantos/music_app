@@ -4,7 +4,8 @@ class BandsController < ApplicationController
     if @band.save
       redirect_to bands_url
     else
-      errors[:notices] << "Band couldn't be saved for some reason"
+      flash[:notices] ||= []
+      flash[:notices] << "Band couldn't be saved for some reason"
       redirect_to new_band_url
     end
   end
