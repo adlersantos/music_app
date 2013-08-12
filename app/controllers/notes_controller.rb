@@ -4,7 +4,8 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to :back
     else
-      errors[:notices] << "note couldn't be saved for some reason"
+      flash[:notice] ||= []
+      flash[:notice] << "note couldn't be saved for some reason"
       redirect_to :back
     end
   end

@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% flash[:notice].try(:each) do |msg| %>
+  <%= msg %>
+<% end %>
 
 <%= yield %>
-
 </body>
 </html>
