@@ -1,4 +1,6 @@
 class BandsController < ApplicationController
+  before_filter :authenticate_user!
+
   def create
     @band = Band.new(params[:band])
     if @band.save

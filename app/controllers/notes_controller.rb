@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :authenticate_user!
+
   def create
     @note = Note.new(params[:note])
     if @note.save

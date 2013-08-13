@@ -6,15 +6,18 @@
   <body>
     <p>
       You have successfully signed up to musicapp.com,
-      and your email is: <%= @user.email %>.<br/>
+      and your email is: <%= @user.email %>.
+      Use this to login to your account<br/>
     </p>
     <p>
-      Activate your account by going here:
-      <%= link_to "Activate URL", @activate_url %>
+      Before anything else, please activate your
+      account by going here: <%= link_to "Activate URL", @activate_url %>
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>
+      Thanks for joining and have a great day!
+    </p>
   </body>
 </html>
