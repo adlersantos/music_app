@@ -5,7 +5,7 @@
 <h3>Album: <%= link_to "#{@track.album.title}", album_url(@track.album) %></h3>
 
 <h3>Lyrics:</h3>
-<pre><%= @track.lyrics %></pre>
+<pre><%= @lyrics %></pre>
 
 <% if !@notes.empty? %>
   <h4>Notes:</h4>

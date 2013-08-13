@@ -4,6 +4,7 @@
   <label for="band_name">Name:</label>
   <input type=text name="band[name]" value="<%= @band.name %>">
 
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="put">
   <input type="submit" value="Update">
 </form>

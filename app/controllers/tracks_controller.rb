@@ -1,6 +1,8 @@
 class TracksController < ApplicationController
   before_filter :authenticate_user!
 
+  include TracksHelper
+
   def create
     @track = Track.new(params[:track])
     if @track.save
@@ -32,6 +34,7 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
+    @lyrics = ugly_lyrics(@track.lyrics)
     @notes = @track.notes
     render :show
   end
