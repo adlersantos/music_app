@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def authenticate_user!
-    redirect to new_session_url unless logged_in?
+    redirect_to login_url unless logged_in?
   end
 end
