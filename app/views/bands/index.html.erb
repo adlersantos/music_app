@@ -11,7 +11,10 @@
   <tr>
     <td><%= link_to "#{band.name}", band_url(band), :method => "get" %></td>
     <td><%= link_to "edit", edit_band_url(band), :method => "get" %></td>
+
+    <% if current_user.admin == true %>
     <td><%= link_to "delete", band_url(band), :method => "delete" %></td>
+    <% end %>
   </tr>
   <% end %>
 </table>
