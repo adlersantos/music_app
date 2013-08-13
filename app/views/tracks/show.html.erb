@@ -13,7 +13,9 @@
     <% @notes.each do |note| %>
       <li>
         <%= note.body %>
-        <%= button_to "Delete", note_url(note), :method => :delete %>
+        <% if note.author_id == current_user.id || current_user.admin == true %>
+          <%= button_to "Delete", note_url(note), :method => :delete %>
+        <% end %>
       </li>
     <% end %>
   </ul>
@@ -24,6 +26,7 @@
   <textarea name="note[body]"></textarea> <br />
 
   <input type="hidden" name="note[track_id]" value="<%= @track.id %>">
+  <input type="hidden" name="note[author_id]" value="<%= current_user.id %>">
 
   <input type="submit" value="Add note">
 </form>
